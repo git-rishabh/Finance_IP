@@ -33,7 +33,7 @@ public class MutualFundListAdapter extends ArrayAdapter<MutualFund> {
 
         // Populate the data into the template view using the data object
         name_mutualfund.setText(mutualFund.getName().toString());
-        id_mutualfund.setText(String.valueOf(mutualFund.getId()));
+        id_mutualfund.setText(mutualFund.getCode().toString());
 
         // Return the completed view to render on screen
         return convertView;

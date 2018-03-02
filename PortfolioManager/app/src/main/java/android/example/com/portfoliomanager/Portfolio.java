@@ -1,33 +1,50 @@
 package android.example.com.portfoliomanager;
 
+
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Comparator;
 
 /**
  * Created by Rishabh on 3/1/2018.
  */
-public class Portfolio implements Serializable {
+public class Portfolio implements Comparator,Serializable {
     String name;
-    int beta;
-    int alpha;
-    ArrayList<MutualFund> mf_list;
-
-    public Portfolio(String name,ArrayList<MutualFund> mf){
-        this.mf_list = new ArrayList<MutualFund>();
-        this.mf_list=mf;
+    public ArrayList <Pair<MutualFund, Float>> mutual_funds = new ArrayList<Pair<MutualFund, Float>>();
+    public Float returns, risk;
+    public Portfolio(){}
+    public Portfolio(String name,ArrayList <Pair<MutualFund, Float>> mf){
+        this.mutual_funds = new ArrayList <Pair<MutualFund, Float>>();
+        this.mutual_funds=mf;
         this.name=name;
-        this.alpha=0;
-        this.beta=0;
+        this.returns=0f;
+        this.risk=0f;
     }
+    @Override
+    public String toString() {
+        String output = "\nReturn: " + returns + " Risk: "+risk + " Returns/Risk: "+ returns/risk +";\n";
+        for (Pair<MutualFund, Float> e: mutual_funds) {
+            output += e.getL() + ": " + e.getR() + "; ";
+        }
+        return output;
+    }
+    @Override
+    public int compare(Object o1, Object o2) {
+        Portfolio p1 = (Portfolio) o1;
+        Portfolio p2 = (Portfolio) o2;
+        float v1 = p1.returns/p1.risk, v2 = p2.returns/p2.risk;
+        return (int)(v2 - v1)*1000;
+    }
+
     public String getName(){
         return this.name;
     }
-    public ArrayList<MutualFund> getMfsList(){
-        return this.mf_list;
+    public ArrayList <Pair<MutualFund, Float>>  getMfsList(){
+        return this.mutual_funds;
     }
     public String getmfs(){
         StringBuilder mfs=new StringBuilder();
-        ArrayList<MutualFund> l = this.mf_list;
+        ArrayList <Pair<MutualFund, Float>>  l = this.mutual_funds;
         for(int i=0;i<l.size();i++){
             mfs.append(l.get(i).toString());
             mfs.append(" ");
@@ -36,11 +53,6 @@ public class Portfolio implements Serializable {
         return mfs.toString();
     }
 
-//    public static ArrayList<Portfolio> getPortfolios() {
-//        ArrayList<Portfolio> users = new ArrayList<User>();
-//        users.add(new User("Harry", "San Diego"));
-//        users.add(new User("Marla", "San Francisco"));
-//        users.add(new User("Sarah", "San Marco"));
-//        return users;
-//    }
 }
+
+

@@ -6,15 +6,27 @@ import java.io.Serializable;
  * Created by Rishabh on 3/1/2018.
  */
 public class MutualFund implements Serializable {
-    int id;
-    String name;
+    public String code;
+    public String name;
+    public Float mean, std, alpha, beta;
 
-    public MutualFund(int id,String name){
-        this.id=id;
+    public MutualFund(String code,String name){
+        this.code=code;
         this.name=name;
     }
-    public int getId(){
-        return this.id;
+    public void setStats(Float mean, Float std, Float alpha, Float beta) {
+        this.mean = mean;
+        this.std = std;
+        this.alpha = alpha;
+        this.beta = beta;
+    }
+    @Override
+    public String toString() {
+        return "MutualFund [code=" + code + ", name=" + name + ", mean=" + mean + ", std=" + std + "]\n";
+    }
+
+    public String getCode(){
+        return this.code;
     }
 
     public String getName(){

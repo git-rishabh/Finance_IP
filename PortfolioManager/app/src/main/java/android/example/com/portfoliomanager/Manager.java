@@ -1,4 +1,5 @@
 package android.example.com.portfoliomanager;
+import android.content.res.AssetManager;
 import android.example.com.portfoliomanager.MutualFund;
 import android.example.com.portfoliomanager.Portfolio;
 
@@ -6,6 +7,8 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Map;
@@ -17,13 +20,16 @@ public class Manager {
     static Map<String, MutualFund> mutual_funds_map = new TreeMap <String, MutualFund>();
     static Map<String, Map <String, Float>> mutual_funds_correlations = new TreeMap<String, Map <String, Float>>();
     static double relaxation = 0.02;
-    public static void LoadDetails() throws IOException {
-        FileReader details = null, stats = null, correlations = null;
+    public static void LoadDetails(AssetManager assetManager) throws IOException {
+        InputStream details = null, stats = null, correlations = null;
         try
         {
-            details = new FileReader("src/resources/mfdetails17.txt");
-            stats = new FileReader("src/resources/stats17.txt");
-            correlations = new FileReader("src/resources/correlations17.txt");
+            details = assetManager.open("mfdetails17.txt");
+            stats = assetManager.open("mfdetails17.txt");
+            correlations = assetManager.open("mfdetails17.txt");
+//            details = new FileReader("src/resources/mfdetails17.txt");
+//            stats = new FileReader("src/resources/stats17.txt");
+//            correlations = new FileReader("src/resources/correlations17.txt");
         }
         catch (FileNotFoundException fe)
         {
@@ -31,7 +37,7 @@ public class Manager {
             fe.printStackTrace();
             System.exit(1);
         }
-        BufferedReader bufferedReader = new BufferedReader(details);
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(details));
         String line;
         while ((line = bufferedReader.readLine()) != null) {
             String code = line.split(";")[0];
@@ -40,7 +46,7 @@ public class Manager {
             mutual_funds_map.put(code, mf);
         }
         details.close();
-        bufferedReader = new BufferedReader(stats);
+        bufferedReader = new BufferedReader(new InputStreamReader(stats));
         while ((line = bufferedReader.readLine()) != null) {
             String code = line.split(" ")[0];
             Float mean = Float.parseFloat(line.split(" ")[1]);
@@ -50,7 +56,7 @@ public class Manager {
             mutual_funds_map.get(code).setStats(mean, std, alpha, beta);
         }
         stats.close();
-        bufferedReader = new BufferedReader(correlations);
+        bufferedReader = new BufferedReader(new InputStreamReader(correlations));
         while ((line = bufferedReader.readLine()) != null) {
             String code1 = line.split(" ")[0];
             String code2 = line.split(" ")[1];

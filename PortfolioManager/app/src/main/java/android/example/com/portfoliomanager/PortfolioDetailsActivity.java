@@ -26,7 +26,7 @@ public class PortfolioDetailsActivity extends AppCompatActivity {
         name_portfolio.setText(portfolio.getName().toString());
 
 
-        ArrayList<MutualFund> arrayOfMF = portfolio.getMfsList();
+        ArrayList<Pair<MutualFund, Float>> arrayOfMF = portfolio.getMfsList();
         // Create the adapter to convert the array to views
        MutualFundListAdapter adapter = new MutualFundListAdapter(this, arrayOfMF);
         // Attach the adapter to a ListView

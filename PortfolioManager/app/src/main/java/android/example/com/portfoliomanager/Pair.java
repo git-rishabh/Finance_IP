@@ -1,6 +1,8 @@
 package android.example.com.portfoliomanager;
 
-public class Pair<L,R> {
+import java.io.Serializable;
+
+public class Pair<L,R> implements Serializable {
 	//From https://stackoverflow.com/questions/4777622/creating-a-list-of-pairs-in-java
     private L l;
     private R r;

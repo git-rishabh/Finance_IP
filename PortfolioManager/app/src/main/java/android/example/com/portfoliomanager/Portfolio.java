@@ -13,7 +13,7 @@ public class Portfolio implements Comparator,Serializable {
     public ArrayList <Pair<MutualFund, Float>> mutual_funds = new ArrayList<Pair<MutualFund, Float>>();
     public Float returns, risk;
     public Portfolio(){}
-    public Portfolio(String name,ArrayList <Pair<MutualFund, Float>> mf){
+    public Portfolio(String name,ArrayList <Pair<MutualFund, Float>> mf,Float risk,Float ret){
         this.mutual_funds = new ArrayList <Pair<MutualFund, Float>>();
         this.mutual_funds=mf;
         this.name=name;
@@ -40,17 +40,14 @@ public class Portfolio implements Comparator,Serializable {
         return this.name;
     }
     public ArrayList <Pair<MutualFund, Float>>  getMfsList(){
+
         return this.mutual_funds;
     }
-    public String getmfs(){
-        StringBuilder mfs=new StringBuilder();
-        ArrayList <Pair<MutualFund, Float>>  l = this.mutual_funds;
-        for(int i=0;i<l.size();i++){
-            mfs.append(l.get(i).toString());
-            mfs.append(" ");
-        }
-        System.out.println(mfs);
-        return mfs.toString();
+   public String getReturn(){
+       return String.valueOf(this.returns);
+   }
+    public String getRisk(){
+        return String.valueOf(this.risk);
     }
 
 }

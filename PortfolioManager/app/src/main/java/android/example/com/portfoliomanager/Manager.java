@@ -2,6 +2,7 @@ package android.example.com.portfoliomanager;
 import android.content.res.AssetManager;
 import android.example.com.portfoliomanager.MutualFund;
 import android.example.com.portfoliomanager.Portfolio;
+import android.util.Log;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -25,8 +26,8 @@ public class Manager {
         try
         {
             details = assetManager.open("mfdetails17.txt");
-            stats = assetManager.open("mfdetails17.txt");
-            correlations = assetManager.open("mfdetails17.txt");
+            stats = assetManager.open("stats17.txt");
+            correlations = assetManager.open("correlations17.txt");
 //            details = new FileReader("src/resources/mfdetails17.txt");
 //            stats = new FileReader("src/resources/stats17.txt");
 //            correlations = new FileReader("src/resources/correlations17.txt");
@@ -48,34 +49,44 @@ public class Manager {
         details.close();
         bufferedReader = new BufferedReader(new InputStreamReader(stats));
         while ((line = bufferedReader.readLine()) != null) {
-            String code = line.split(" ")[0];
-            Float mean = Float.parseFloat(line.split(" ")[1]);
-            Float std = Float.parseFloat(line.split(" ")[2]);
-            Float alpha = Float.parseFloat(line.split(" ")[3]);
-            Float beta = Float.parseFloat(line.split(" ")[4]);
-            mutual_funds_map.get(code).setStats(mean, std, alpha, beta);
+                String code = line.split(" ")[0];
+                Float mean = Float.parseFloat(line.split(" ")[1]);
+                Float std = Float.parseFloat(line.split(" ")[2]);
+                Float alpha = Float.parseFloat(line.split(" ")[3]);
+                Float beta = Float.parseFloat(line.split(" ")[4]);
+                mutual_funds_map.get(code).setStats(mean, std, alpha, beta);
+
         }
         stats.close();
         bufferedReader = new BufferedReader(new InputStreamReader(correlations));
         while ((line = bufferedReader.readLine()) != null) {
-            String code1 = line.split(" ")[0];
-            String code2 = line.split(" ")[1];
-            Float corr = Float.parseFloat(line.split(" ")[2]);
-            if(mutual_funds_correlations.containsKey(code1) == false)
-                mutual_funds_correlations.put(code1, new TreeMap<String, Float>());
-            if(mutual_funds_correlations.containsKey(code2) == false)
-                mutual_funds_correlations.put(code2, new TreeMap<String, Float>());
-            mutual_funds_correlations.get(code1).put(code2, corr);
-            mutual_funds_correlations.get(code2).put(code1, corr);
+
+                String code1 = line.split(" ")[0];
+                String code2 = line.split(" ")[1];
+                Log.d("str1-",code1);
+                Log.d("str2-",code2);
+                Float corr = Float.parseFloat(line.split(" ")[2]);
+                Log.d("corr-",corr.toString());
+                if(mutual_funds_correlations.containsKey(code1) == false)
+                    mutual_funds_correlations.put(code1, new TreeMap<String, Float>());
+                if(mutual_funds_correlations.containsKey(code2) == false)
+                    mutual_funds_correlations.put(code2, new TreeMap<String, Float>());
+                mutual_funds_correlations.get(code1).put(code2, corr);
+                mutual_funds_correlations.get(code2).put(code1, corr);
+
         }
         correlations.close();
         System.out.println(mutual_funds_map.size() + " mutual funds loaded successfully.");
+        Log.d("done","done");
+
     }
 //	static private Double getRiskFromStd(double std) {
 //		NormalDistribution dist = new NormalDistribution(1, );
 //	}
 
     static ArrayList<Portfolio> getPortfolios(double returns, double risk) throws Exception{
+        Log.d("done","ENTERED");
+
         ArrayList<Portfolio> output = new ArrayList <Portfolio>();
         if(risk < 0 || risk > 1 || returns < 0 || returns > 1)
             throw new Exception();

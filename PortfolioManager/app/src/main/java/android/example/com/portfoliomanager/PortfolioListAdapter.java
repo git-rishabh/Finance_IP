@@ -26,12 +26,14 @@ public class PortfolioListAdapter extends ArrayAdapter<Portfolio> {
         }
         // Lookup view for data population
         TextView name_portfolio = (TextView) convertView.findViewById(R.id.name_portfolio);
-        TextView mfs_portfolio = (TextView) convertView.findViewById(R.id.mfs_portfolio);
+        TextView return_portfolio = (TextView) convertView.findViewById(R.id.return_portfolio);
+        TextView risk_portfolio = (TextView) convertView.findViewById(R.id.risk_portfolio);
 
 
         // Populate the data into the template view using the data object
         name_portfolio.setText(portfolio.getName());
-        mfs_portfolio.setText(portfolio.getmfs());
+        return_portfolio.setText(portfolio.getReturn());
+        risk_portfolio.setText(portfolio.getRisk());
 
         // Return the completed view to render on screen
         return convertView;

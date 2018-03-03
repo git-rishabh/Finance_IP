@@ -26,10 +26,21 @@ public class MutualFund implements Serializable {
     }
 
     public String getCode(){
+
         return this.code;
     }
 
     public String getName(){
+
         return this.name;
+    }
+
+    public String getMean(){
+
+        return String.valueOf(this.mean);
+    }
+
+    public String getStd(){
+       return String.valueOf(this.std);
     }
 }

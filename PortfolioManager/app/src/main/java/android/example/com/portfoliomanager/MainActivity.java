@@ -27,22 +27,25 @@ public class MainActivity extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-//        ArrayList<Portfolio> pfs = new ArrayList<>();
-//        MutualFund mf1 = new MutualFund("12","icici");
-//        MutualFund mf2 = new MutualFund("13","hdfc");
-//        MutualFund mf3 = new MutualFund("14","sbi");
-//        MutualFund mf4 = new MutualFund("15","uco");
-//        ArrayList<MutualFund> mf_list1 = new ArrayList<>();
-//        mf_list1.add(mf1);mf_list1.add(mf2);
-//        ArrayList<MutualFund> mf_list2 = new ArrayList<>();
-//        mf_list2.add(mf3);mf_list2.add(mf4);
-//        ArrayList<MutualFund> mf_list3 = new ArrayList<>();
-//        mf_list3.add(mf2);mf_list3.add(mf4);
-//        Portfolio p1 = new Portfolio("P11",mf_list1);
-//        Portfolio p2 = new Portfolio("P22",mf_list2);
-//        Portfolio p3 = new Portfolio("P33",mf_list3);
-
-//        pfs.add(p1);pfs.add(p2);pfs.add(p3);
+//        MutualFund mf1 = new MutualFund("12","icici");mf1.setStats(1f,1.0f,1.0f,1.0f);
+//        MutualFund mf2 = new MutualFund("13","hdfc");mf1.setStats(1f,1.0f,1.0f,1.0f);
+//        MutualFund mf3 = new MutualFund("14","sbi");mf1.setStats(1f,1.0f,1.0f,1.0f);
+//        MutualFund mf4 = new MutualFund("15","uco");mf1.setStats(1f,1.0f,1.0f,1.0f);
+//        ArrayList<Pair<MutualFund,Float>> mf_list1 = new ArrayList<>();
+//        Pair pair1=new Pair(mf1,"0.4");
+//        Pair pair2=new Pair(mf2,"0.6");
+//        Pair pair3=new Pair(mf3,"0.5");
+//        Pair pair4=new Pair(mf4,"0.5");
+//        mf_list1.add(pair1);mf_list1.add(pair2);
+//        ArrayList<Pair<MutualFund,Float>> mf_list2 = new ArrayList<>();
+//        mf_list2.add(pair3);mf_list2.add(pair4);
+//        ArrayList<Pair<MutualFund,Float>> mf_list3 = new ArrayList<>();
+//        mf_list3.add(pair2);mf_list3.add(pair4);
+//        Portfolio p1 = new Portfolio("P11",mf_list1,0.3f,0.6f);
+//        Portfolio p2 = new Portfolio("P22",mf_list2,0.1f,0.4f);
+//        Portfolio p3 = new Portfolio("P33",mf_list3,0.8f,0.7f);
+//
+//        portfolio_list.add(p1);portfolio_list.add(p2);portfolio_list.add(p3);
 
         return portfolio_list;
 

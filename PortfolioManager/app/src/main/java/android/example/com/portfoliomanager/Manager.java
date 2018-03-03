@@ -38,6 +38,9 @@ public class Manager {
             fe.printStackTrace();
             System.exit(1);
         }
+
+        Log.d("done","done111");
+
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(details));
         String line;
         while ((line = bufferedReader.readLine()) != null) {
@@ -47,6 +50,8 @@ public class Manager {
             mutual_funds_map.put(code, mf);
         }
         details.close();
+        Log.d("done","done222");
+
         bufferedReader = new BufferedReader(new InputStreamReader(stats));
         while ((line = bufferedReader.readLine()) != null) {
                 String code = line.split(" ")[0];
@@ -58,15 +63,17 @@ public class Manager {
 
         }
         stats.close();
+        Log.d("done","done3333");
+
         bufferedReader = new BufferedReader(new InputStreamReader(correlations));
         while ((line = bufferedReader.readLine()) != null) {
 
                 String code1 = line.split(" ")[0];
                 String code2 = line.split(" ")[1];
-                Log.d("str1-",code1);
-                Log.d("str2-",code2);
+//                Log.d("str1-",code1);
+//                Log.d("str2-",code2);
                 Float corr = Float.parseFloat(line.split(" ")[2]);
-                Log.d("corr-",corr.toString());
+//                Log.d("corr-",corr.toString());
                 if(mutual_funds_correlations.containsKey(code1) == false)
                     mutual_funds_correlations.put(code1, new TreeMap<String, Float>());
                 if(mutual_funds_correlations.containsKey(code2) == false)

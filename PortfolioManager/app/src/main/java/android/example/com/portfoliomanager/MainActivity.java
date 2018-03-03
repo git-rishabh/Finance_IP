@@ -21,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<Portfolio> portfolio_list = new ArrayList<Portfolio>();
         try{
             AssetManager assetManager = getAssets();
-//            InputStream in = assetManager.open("text.txt");
             Manager.LoadDetails(assetManager);
             portfolio_list = Manager.getPortfolios(exp_return,risk);
         } catch (Exception e) {

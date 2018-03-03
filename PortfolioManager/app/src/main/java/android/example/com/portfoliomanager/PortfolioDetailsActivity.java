@@ -22,8 +22,8 @@ public class PortfolioDetailsActivity extends AppCompatActivity {
 
 //        getSupportActionBar().setTitle(portfolio.getName().toString());
 
-        TextView name_portfolio = (TextView) findViewById(R.id.name_portfolio);
-        name_portfolio.setText(portfolio.getName().toString());
+//        TextView name_portfolio = (TextView) findViewById(R.id.name_portfolio);
+//        name_portfolio.setText(portfolio.getName().toString());
 
 
         ArrayList<Pair<MutualFund, Float>> arrayOfMF = portfolio.getMfsList();

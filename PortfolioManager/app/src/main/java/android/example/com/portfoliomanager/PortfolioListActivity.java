@@ -39,8 +39,9 @@ public class PortfolioListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_portfolio_list);
-        Bundle b = getIntent().getExtras();
-        ArrayList<Portfolio> pfs = (ArrayList<Portfolio>)b.getSerializable("portfolios");
+//        Bundle b = getIntent().getExtras();
+        ArrayList<Portfolio> pfs = MainActivity.portfolio_list;
+//        ArrayList<Portfolio> pfs = (ArrayList<Portfolio>)b.getSerializable("portfolios");
 //        System.out.println(pfs);
         populatePortfolioList(pfs);
 

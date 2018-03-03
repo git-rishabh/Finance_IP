@@ -9,14 +9,14 @@ import java.util.Comparator;
  * Created by Rishabh on 3/1/2018.
  */
 public class Portfolio implements Comparator,Serializable {
-    String name;
+//    String name;
     public ArrayList <Pair<MutualFund, Float>> mutual_funds = new ArrayList<Pair<MutualFund, Float>>();
     public Float returns, risk;
     public Portfolio(){}
     public Portfolio(String name,ArrayList <Pair<MutualFund, Float>> mf,Float risk,Float ret){
         this.mutual_funds = new ArrayList <Pair<MutualFund, Float>>();
         this.mutual_funds=mf;
-        this.name=name;
+//        this.name=name;
         this.returns=0f;
         this.risk=0f;
     }
@@ -36,9 +36,9 @@ public class Portfolio implements Comparator,Serializable {
         return (int)(v2 - v1)*1000;
     }
 
-    public String getName(){
-        return this.name;
-    }
+//    public String getName(){
+//        return this.name;
+//    }
     public ArrayList <Pair<MutualFund, Float>>  getMfsList(){
 
         return this.mutual_funds;

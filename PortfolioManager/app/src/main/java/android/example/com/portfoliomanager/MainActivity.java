@@ -12,13 +12,12 @@ import java.io.InputStream;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-
+    public static ArrayList<Portfolio> portfolio_list = new ArrayList<Portfolio>();
     @Override    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
     public ArrayList<Portfolio> getPortfolios(int exp_return,int risk,int maturity){
-        ArrayList<Portfolio> portfolio_list = new ArrayList<Portfolio>();
         try{
             AssetManager assetManager = getAssets();
             Manager.LoadDetails(assetManager);
@@ -66,9 +65,9 @@ public class MainActivity extends AppCompatActivity {
             ArrayList<Portfolio> portfolios = getPortfolios(expected_return,risk,maturity);
 
             Intent intent = new Intent(this,PortfolioListActivity.class);
-            Bundle b = new Bundle();
-            b.putSerializable("portfolios",portfolios);
-            intent.putExtras(b);
+//            Bundle b = new Bundle();
+//            b.putSerializable("portfolios",portfolios);
+//            intent.putExtras(b);
             startActivity(intent);
 
         }catch(NumberFormatException e){

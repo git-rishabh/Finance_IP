@@ -65,9 +65,6 @@ public class MainActivity extends AppCompatActivity {
             ArrayList<Portfolio> portfolios = getPortfolios(expected_return,risk,maturity);
 
             Intent intent = new Intent(this,PortfolioListActivity.class);
-//            Bundle b = new Bundle();
-//            b.putSerializable("portfolios",portfolios);
-//            intent.putExtras(b);
             startActivity(intent);
 
         }catch(NumberFormatException e){

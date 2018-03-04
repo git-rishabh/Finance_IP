@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Map;
 import java.util.TreeMap;
+import java.util.*;
 
 import org.apache.commons.math3.distribution.NormalDistribution;
 
@@ -153,7 +154,7 @@ public class Manager {
                 output.add(p);
             }
         }
-//        output.sort(new Portfolio());
+        Collections.sort(output);
         return output;
     }
 }

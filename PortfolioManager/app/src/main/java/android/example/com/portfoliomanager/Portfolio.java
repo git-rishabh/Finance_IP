@@ -8,7 +8,7 @@ import java.util.Comparator;
 /**
  * Created by Rishabh on 3/1/2018.
  */
-public class Portfolio implements Comparator,Serializable {
+public class Portfolio implements Comparable, Serializable {
 //    String name;
     public ArrayList <Pair<MutualFund, Float>> mutual_funds = new ArrayList<Pair<MutualFund, Float>>();
     public Float returns, risk;
@@ -28,13 +28,23 @@ public class Portfolio implements Comparator,Serializable {
         }
         return output;
     }
+
     @Override
-    public int compare(Object o1, Object o2) {
-        Portfolio p1 = (Portfolio) o1;
-        Portfolio p2 = (Portfolio) o2;
+    public int compareTo(Object another) {
+        Portfolio p1 = (Portfolio) another;
+        Portfolio p2 = (Portfolio) this;
         float v1 = p1.returns/p1.risk, v2 = p2.returns/p2.risk;
-        return (int)(v2 - v1)*1000;
-    }
+        return (int)(v2 - v1)*1000;    }
+
+    //    @Override
+//    public int compare(Object o1, Object o2) {
+//        Portfolio p1 = (Portfolio) o1;
+//        Portfolio p2 = (Portfolio) o2;
+//        float v1 = p1.returns/p1.risk, v2 = p2.returns/p2.risk;
+//        return (int)(v2 - v1)*1000;
+//    }
+
+
 
 //    public String getName(){
 //        return this.name;

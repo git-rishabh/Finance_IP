@@ -163,7 +163,7 @@ public class Manager {
 
         int no=1;
         for(Portfolio p : output){
-            if(TopK && no>15){
+            if(TopK && no>k){
                 break;
             }
             String pname = "Portfolio "+no;

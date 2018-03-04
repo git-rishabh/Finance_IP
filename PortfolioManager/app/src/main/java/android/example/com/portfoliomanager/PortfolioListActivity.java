@@ -40,11 +40,18 @@ public class PortfolioListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_portfolio_list);
 //        Bundle b = getIntent().getExtras();
+        getSupportActionBar().setTitle("Possible Investment Options");
         ArrayList<Portfolio> pfs = MainActivity.portfolio_list;
 //        ArrayList<Portfolio> pfs = (ArrayList<Portfolio>)b.getSerializable("portfolios");
 //        System.out.println(pfs);
         populatePortfolioList(pfs);
 
+    }
+    @Override
+    public void onResume(){
+        super.onResume();
+        ArrayList<Portfolio> pfs = MainActivity.portfolio_list;
+        populatePortfolioList(pfs);
     }
     private void populatePortfolioList(ArrayList<Portfolio> pfs) {
         // Construct the data source

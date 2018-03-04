@@ -12,11 +12,11 @@
             android:layout_width="match_parent"
             android:orientation="horizontal"
             android:layout_height="40sp"
-            android:layout_margin="10sp">
+            android:layout_margin="5sp">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Mutual Fund Name :                    "
+                android:text="Mutual Fund Name :       "
                 android:layout_margin="10sp"
                 android:layout_gravity="center"
                 />
@@ -32,11 +32,11 @@
             android:layout_width="match_parent"
             android:orientation="horizontal"
             android:layout_height="40sp"
-            android:layout_margin="10sp">
+            android:layout_margin="5sp">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Mutual Fund ID :                    "
+                android:text="Mutual Fund ID :            "
                 android:layout_margin="10sp"
                 android:layout_gravity="center"
                 />
@@ -52,11 +52,11 @@
             android:layout_width="match_parent"
             android:orientation="horizontal"
             android:layout_height="40sp"
-            android:layout_margin="10sp">
+            android:layout_margin="5sp">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Mutual Fund Weight :                    "
+                android:text="Mutual Fund Weight :    "
                 android:layout_margin="10sp"
                 android:layout_gravity="center"
                 />
@@ -71,11 +71,11 @@
             android:layout_width="match_parent"
             android:orientation="horizontal"
             android:layout_height="40sp"
-            android:layout_margin="10sp">
+            android:layout_margin="5sp">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Mean Return :                    "
+                android:text="Mean Return :             "
                 android:layout_margin="10sp"
                 android:layout_gravity="center"
                 />
@@ -90,11 +90,11 @@
             android:layout_width="match_parent"
             android:orientation="horizontal"
             android:layout_height="40sp"
-            android:layout_margin="10sp">
+            android:layout_margin="5sp">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Mutual Fund Risk :                    "
+                android:text="Mutual Fund Risk :       "
                 android:layout_margin="10sp"
                 android:layout_gravity="center"
                 />

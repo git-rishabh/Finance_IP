@@ -109,7 +109,7 @@ public class Manager {
                 continue;
             }
             double required_probability = 1 - dist.cumulativeProbability(returns);
-            if(required_probability >= probability) {
+            if(required_probability >= probability || true) {
                 String global_min_risk_mf = null;
                 float global_w1 = 1.0f, global_w2 = 0.0f;
                 float std1 = mf.std;
@@ -153,6 +153,10 @@ public class Manager {
             }
         }
 //        output.sort(new Portfolio());
+        Log.d("done","LEAVING");
+        int s = output.size();
+        Log.d("size",String.valueOf(s));
+
         return output;
     }
 }

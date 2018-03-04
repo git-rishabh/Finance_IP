@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
-    public ArrayList<Portfolio> getPortfolios(int exp_return,int risk,int maturity){
+    public ArrayList<Portfolio> getPortfolios(float exp_return,float risk,float maturity){
         try{
             AssetManager assetManager = getAssets();
             Manager.LoadDetails(assetManager);
@@ -53,9 +53,9 @@ public class MainActivity extends AppCompatActivity {
         EditText risk_field = (EditText) findViewById(R.id.risk);
         EditText maturity_field = (EditText) findViewById(R.id.maturity);
         try {
-            int expected_return = Integer.parseInt(expected_return_field.getText().toString());
-            int risk = Integer.parseInt(risk_field.getText().toString());
-            int maturity = Integer.parseInt(maturity_field.getText().toString());
+            float expected_return = Integer.parseInt(expected_return_field.getText().toString());
+            float risk = Integer.parseInt(risk_field.getText().toString());
+            float maturity = Integer.parseInt(maturity_field.getText().toString());
             if(expected_return<0 || expected_return>100 || risk<0 || risk>100){
                 throw new NumberFormatException();
             }

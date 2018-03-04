@@ -21,6 +21,7 @@ public class Manager {
     static Map<String, MutualFund> mutual_funds_map = new TreeMap <String, MutualFund>();
     static Map<String, Map <String, Float>> mutual_funds_correlations = new TreeMap<String, Map <String, Float>>();
     static double relaxation = 0.02;
+    static final String tag = "Manager";
     public static void LoadDetails(AssetManager assetManager) throws IOException {
         InputStream details = null, stats = null, correlations = null;
         try
@@ -83,7 +84,7 @@ public class Manager {
 
         }
         correlations.close();
-        System.out.println(mutual_funds_map.size() + " mutual funds loaded successfully.");
+        Log.v(tag, mutual_funds_map.size() + " mutual funds loaded successfully.");
         Log.d("done","done");
 
     }
@@ -92,8 +93,8 @@ public class Manager {
 //	}
 
     static ArrayList<Portfolio> getPortfolios(double returns, double risk) throws Exception{
-        Log.d("done","ENTERED");
-
+        Log.v(tag, "inside");
+        Log.v(tag,  returns +" + " + risk);
         ArrayList<Portfolio> output = new ArrayList <Portfolio>();
         if(risk < 0 || risk > 1 || returns < 0 || returns > 1)
             throw new Exception();
@@ -109,7 +110,7 @@ public class Manager {
                 continue;
             }
             double required_probability = 1 - dist.cumulativeProbability(returns);
-            if(required_probability >= probability || true) {
+            if(required_probability >= probability) {
                 String global_min_risk_mf = null;
                 float global_w1 = 1.0f, global_w2 = 0.0f;
                 float std1 = mf.std;
@@ -153,10 +154,6 @@ public class Manager {
             }
         }
 //        output.sort(new Portfolio());
-        Log.d("done","LEAVING");
-        int s = output.size();
-        Log.d("size",String.valueOf(s));
-
         return output;
     }
 }

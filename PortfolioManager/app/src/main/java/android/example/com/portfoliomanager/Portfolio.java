@@ -9,7 +9,7 @@ import java.util.Comparator;
  * Created by Rishabh on 3/1/2018.
  */
 public class Portfolio implements Comparable, Serializable {
-//    String name;
+    String name;
     public ArrayList <Pair<MutualFund, Float>> mutual_funds = new ArrayList<Pair<MutualFund, Float>>();
     public Float returns, risk;
     public Portfolio(){}
@@ -46,9 +46,12 @@ public class Portfolio implements Comparable, Serializable {
 
 
 
-//    public String getName(){
-//        return this.name;
-//    }
+    public void setName(String name){
+        this.name=name;
+    }
+    public String getName(){
+            return this.name;
+        }
     public ArrayList <Pair<MutualFund, Float>>  getMfsList(){
 
         return this.mutual_funds;

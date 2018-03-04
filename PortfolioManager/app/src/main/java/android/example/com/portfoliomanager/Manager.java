@@ -19,6 +19,8 @@ import java.util.*;
 import org.apache.commons.math3.distribution.NormalDistribution;
 
 public class Manager {
+    static int k = 10;
+    static boolean TopK=true;
     static Map<String, MutualFund> mutual_funds_map = new TreeMap <String, MutualFund>();
     static Map<String, Map <String, Float>> mutual_funds_correlations = new TreeMap<String, Map <String, Float>>();
     static double relaxation = 0.02;
@@ -93,6 +95,7 @@ public class Manager {
 //		NormalDistribution dist = new NormalDistribution(1, );
 //	}
 
+
     static ArrayList<Portfolio> getPortfolios(double returns, double risk) throws Exception{
         Log.v(tag, "inside");
         Log.v(tag,  returns +" + " + risk);
@@ -152,9 +155,23 @@ public class Manager {
                 p.returns = mf.mean*global_w1 + mutual_funds_map.get(global_min_risk_mf).mean*global_w2;
                 p.risk = global_minimum_risk;
                 output.add(p);
+
             }
         }
         Collections.sort(output);
-        return output;
+        ArrayList<Portfolio> TopKoutput = new ArrayList <Portfolio>();
+
+        int no=1;
+        for(Portfolio p : output){
+            if(TopK && no>15){
+                break;
+            }
+            String pname = "Portfolio "+no;
+            p.setName(pname);
+            TopKoutput.add(p);
+            no=no+1;
+        }
+
+        return TopKoutput;
     }
 }

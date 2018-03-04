@@ -20,7 +20,7 @@ public class PortfolioDetailsActivity extends AppCompatActivity {
 
 //        portfolio=(Portfolio) i.getSerializableExtra("portfolio");
 
-//        getSupportActionBar().setTitle(portfolio.getName().toString());
+        getSupportActionBar().setTitle(portfolio.getName().toString());
 
 //        TextView name_portfolio = (TextView) findViewById(R.id.name_portfolio);
 //        name_portfolio.setText(portfolio.getName().toString());

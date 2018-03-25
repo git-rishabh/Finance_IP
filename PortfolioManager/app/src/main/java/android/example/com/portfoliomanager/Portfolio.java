@@ -29,20 +29,18 @@ public class Portfolio implements Comparable, Serializable {
         return output;
     }
 
-    @Override
     public int compareTo(Object another) {
         Portfolio p1 = (Portfolio) another;
         Portfolio p2 = (Portfolio) this;
         float v1 = p1.returns/p1.risk, v2 = p2.returns/p2.risk;
         return (int)(v2 - v1)*1000;    }
 
-    //    @Override
-//    public int compare(Object o1, Object o2) {
-//        Portfolio p1 = (Portfolio) o1;
-//        Portfolio p2 = (Portfolio) o2;
-//        float v1 = p1.returns/p1.risk, v2 = p2.returns/p2.risk;
-//        return (int)(v2 - v1)*1000;
-//    }
+    public int compare(Object o1, Object o2) {
+        Portfolio p1 = (Portfolio) o1;
+        Portfolio p2 = (Portfolio) o2;
+        float v1 = p1.returns/p1.risk, v2 = p2.returns/p2.risk;
+        return (int)(v2 - v1)*1000;
+    }
 
 
 
